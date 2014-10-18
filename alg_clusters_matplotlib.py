@@ -47,13 +47,6 @@ def plot_clusters(data_table, cluster_list, draw_clusters = True):
     implot = plt.imshow(map_img)
    
     #draw the clusters on the map
-    for cluster_idx in range(len(cluster_list)):
-        cluster = cluster_list[cluster_idx]
-        cluster_color = COLORS[cluster_idx % len(COLORS)]
-        for fips_code in cluster.fips_codes():
-            line = data_table[fips_to_line[fips_code]]
-            plt.scatter(x = [line[1]], y = [line[2]], s =  circle_area(line[3]), lw = 1,
-                        facecolors = cluster_color, edgecolors = cluster_color)
 
     if draw_clusters:
         for cluster_idx in range(len(cluster_list)):
